@@ -1,0 +1,29 @@
+// Colors
+$color-fg: hsl(34, 78%, 91%);
+$color-fg--light: lighten($color-fg, 5%);
+$color-fg--dark: desaturate(darken($color-fg, 10%), 20%);
+$color-bg: #fff;
+$color-primary: hsl(153, 47%, 49%);
+$color-secondary: hsl(199, 63%, 87%);
+$color-text: #333;
+$color-border: rgba(0, 0, 0, 0.5);
+$color-link: darken($color-primary, 10%);
+$color-switch-bg: $color-fg--dark;
+$color-switch-bg--active: $color-primary;
+$color-switch-slider: $color-fg--light;
+$color-nav-bg--active: $color-fg;
+
+// Gradients
+$gradient-page: radial-gradient(circle, rgb(255, 255, 255) 0%, $color-secondary 75%);
+$gradient-page-fallback: #fff;
+
+// Font stacks
+$font-primary: 'Cardenio Modern', Helvetica, sans-serif;
+$font-text: 'Helvetica Neue', Helvetica, sans-serif;
+
+// Sizes
+$breakpoint-tablet: 700px;
+$breakpoint-phone: 500px;
+$app-padding: 16px;
+$app-width: 700px + $app-padding;
+$border-radius-default: 15px;

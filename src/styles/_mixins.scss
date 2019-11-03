@@ -1,0 +1,12 @@
+// Breakpoints
+@mixin break-tablet() {
+    @media screen and (min-width: $breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin break-phone() {
+    @media screen and (min-width: $breakpoint-phone) {
+        @content;
+    }
+}

@@ -1,6 +1,9 @@
 {
   "name": "wingspan-helper",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": {"name": "Valentin von Guttenberg"},
+  "homepage": "https://wingspan-helper.now.sh",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
