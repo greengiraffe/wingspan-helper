@@ -1,7 +1,9 @@
 {
   "name": "wingspan-helper",
   "version": "1.0.0",
-  "author": {"name": "Valentin von Guttenberg"},
+  "author": {
+    "name": "Valentin von Guttenberg"
+  },
   "homepage": "https://wingspan-helper.now.sh",
   "license": "MIT",
   "private": true,

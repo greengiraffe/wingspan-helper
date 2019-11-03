@@ -110,7 +110,7 @@ $color--border: rgba(0, 0, 0, 0.2);
 
   @include break-phone {
     grid-template-columns: minmax(10rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
-  } 
+  }
 
   + .row {
     border-top: 1px solid $color--border;
@@ -150,7 +150,7 @@ $color--border: rgba(0, 0, 0, 0.2);
 
   @include break-phone {
     font-size: 1.5rem;
-  } 
+  }
 }
 
 .cell--player-num {

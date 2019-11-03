@@ -20,17 +20,15 @@
 <script>
 // @ is an alias to /src
 import ScoringTable from '@/components/ScoringTable.vue'
-import Slider from "@/components/Slider.vue"
 
 export default {
   name: 'home',
   components: {
-    ScoringTable,
-    Slider
+    ScoringTable
   },
   data () {
     return {
-      players: [2,3,4,5]
+      players: [2, 3, 4, 5]
     }
   },
   computed: {
@@ -41,11 +39,8 @@ export default {
     }
   },
   methods: {
-    reset() {
+    reset () {
       this.$store.commit('resetAllScores')
-    },
-    setPlayerCount(num) {
-      this.$store.commit('setPlayerCount', playerCount)
     }
   }
 

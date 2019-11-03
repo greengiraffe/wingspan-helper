@@ -12,7 +12,7 @@ export default new Router({
       path: '*',
       name: 'scoresheet',
       component: Scoresheet
-    },
+    }
     // {
     //   path: '/automata',
     //   name: 'automata',
