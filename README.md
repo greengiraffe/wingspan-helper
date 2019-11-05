@@ -1,16 +1,24 @@
 # Wingspan Helper
 
-A small website dedicated to the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/) by Elizabeth Hargrave (Stonemaier Games). It currently provides a digital scoreboard. A companion for the Automata for solo playing is planned.
+A small web app dedicated to the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/). It currently provides a digital scoresheet. A companion for the Automata for solo playing is planned.
 
-Try it out: https://wingspan-helper.now.sh/
+:arrow_right: Try it out at https://wingspan-helper.now.sh/
 
-You can add the app to your homescreen and use it offline if you want, it's a progressive web app. :)
+:sparkles: You can add the app to your homescreen and use it offline if you want!
 
-This project is licensed under the terms of the MIT license. Feel free to contribute here on GitHub by creating bug reports or pull requests.
+![Screenshot](https://user-images.githubusercontent.com/9062294/68215859-43fe3080-ffe0-11e9-8b88-8f010e24a2f9.png)
 
 ## Credits
 
-This is an independent open source project, it is not related to Stonemaier Games or the original boardgame Wingspan in any way. The graphic of the scissor-tailed flycatcher used as the app icon and for the site header is based on the original artwork by [Natalia Rojas](https://www.nataliarojasart.com/). The handwritten typeface used is Cardenio Modern by [Nils Cordes](http://nilscordes.com/).
+This is an independent open source project, it is not related to Stonemaier Games or the original boardgame Wingspan in any way.
+
+The graphic of the scissor-tailed flycatcher used as the app icon and for the site header is based on the original artwork by [Natalia Rojas](https://www.nataliarojasart.com/).
+
+The handwritten typeface used is Cardenio Modern by [Nils Cordes](http://nilscordes.com/).
+
+## License
+
+This project is licensed under the terms of the MIT license. Feel free to contribute here on GitHub by creating bug reports or pull requests.
 
 ## Development
 
