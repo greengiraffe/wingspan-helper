@@ -152,7 +152,7 @@
       // the rounded corners of the tab and the <main>
       content: "";
       position: absolute;
-      width: calc(100% - (2 * $border-radius-default));
+      width: calc(100% - #{2 * $border-radius-default});
       height: 0.5rem;
       bottom: -0.5rem;
       left: $border-radius-default;
