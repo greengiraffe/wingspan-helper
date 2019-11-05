@@ -50,15 +50,22 @@ export default {
   .action-bar {
     margin-top: 1rem;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+    @include break-phone {
+      justify-content: flex-end;
+      flex-direction: row;
+    }
   }
 
   .action + .action {
     margin-left: 0.5rem;
+    margin-top: 0.5rem;
 
     @include break-phone {
       margin-left: 1rem;
+      margin-top: 0;
     }
   }
 

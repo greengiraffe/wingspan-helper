@@ -41,11 +41,11 @@
   position: relative;
   display: inline-block;
   height: 5rem;
-  margin: 1rem 0;
+  margin: 0.5rem 0 1rem;
 
   @include break-phone {
-    margin: 2rem 0 1rem;
-    height: auto;
+    height: 7rem;
+    margin: 1rem 0;
   }
 }
 
@@ -60,7 +60,7 @@
 
 #main {
   position: relative;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   flex: 1;
   background-color: $color-fg;
   border-top-right-radius: $border-radius-default;
@@ -68,6 +68,10 @@
   border-bottom-right-radius: $border-radius-default;
   background-clip: border-box;
   box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
+
+  @include break-phone {
+    padding: 1rem;
+  }
 }
 
 #nav {
@@ -148,9 +152,9 @@
       // the rounded corners of the tab and the <main>
       content: "";
       position: absolute;
-      width: calc(100% - 30px);
-      height: 5px;
-      bottom: -10px;
+      width: calc(100% - (2 * $border-radius-default));
+      height: 0.5rem;
+      bottom: -0.5rem;
       left: $border-radius-default;
       box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     }
