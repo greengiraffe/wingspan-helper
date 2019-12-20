@@ -1,21 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import i18n from './i18n'
 
 Vue.use(Vuex)
 
-const defaultScores = {
-  'birds': -1,
-  'bonus cards': -1,
-  'end-of-round goals': -1,
-  'eggs': -1,
-  'food on cards': -1,
-  'tucked cards': -1
-}
+const scoreTypes = i18n.t('scoreTypes', 'en')
+
+// transform labels array to object keys
+const defaultScores = scoreTypes.reduce((acc, value) => {
+  acc[value] = -1
+  return acc
+}, {})
 
 export default new Vuex.Store({
   state: {
+    language: null, // first set by router
     playerCount: 5,
-    scoreTypes: ['birds', 'bonus cards', 'end-of-round goals', 'eggs', 'food on cards', 'tucked cards'],
+    scoreTypes,
+    localizedScoreTypes: i18n.t('scoreTypes'),
     players: {
       1: { scores: Object.assign({}, defaultScores), total: 0 },
       2: { scores: Object.assign({}, defaultScores), total: 0 },
@@ -33,6 +35,10 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    setLanguage (state, payload) {
+      state.language = payload
+      state.localizedScoreTypes = i18n.t('scoreTypes')
+    },
     setPlayerCount (state, payload) {
       state.playerCount = payload
     },
@@ -61,6 +67,18 @@ export default new Vuex.Store({
         state.players[i].scores = Object.assign({}, defaultScores)
         state.players[i].total = 0
       }
+    }
+  },
+  actions: {
+    setLanguage ({ commit }, language) {
+      document.documentElement.setAttribute('lang', language)
+      i18n.locale = language
+      commit('setLanguage', language)
+    },
+
+    toggleLanguage ({ state, dispatch }) {
+      const newLang = state.language === 'en' ? 'de' : 'en'
+      dispatch('setLanguage', newLang)
     }
   }
 })

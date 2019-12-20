@@ -2,12 +2,12 @@
   <div class="table">
 
     <div class="row row--player">
-      <p class="cell cell--label">Player</p>
+      <p class="cell cell--label">{{ $t('playerTitle') }}</p>
       <div v-for="player in playerCount" :key="player" class="cell cell--label cell--player-num">{{player}}</div>
     </div>
 
-    <div class="row" v-for="scoreType in scoreTypes" :key="scoreType">
-      <p class="cell cell--label">{{scoreType}}</p>
+    <div class="row" v-for="(scoreType, i) in scoreTypes" :key="i">
+      <p class="cell cell--label">{{localizedScoreTypes[i]}}</p>
       <div
         class="cell cell--score"
         v-for="(player, playerNum) in activePlayers"
@@ -18,8 +18,8 @@
           type="number"
           min="0"
           :id="scoreId(scoreType, playerNum)"
-          :title="label(scoreType, playerNum)"
-          :aria-label="label(scoreType, playerNum)"
+          :title="label(localizedScoreTypes[i], playerNum)"
+          :aria-label="label(localizedScoreTypes[i], playerNum)"
           :value="score(scoreType, playerNum) == -1 ? null : score(scoreType, playerNum)"
           @input="updateScore($event, playerNum, scoreType)"
         />
@@ -28,14 +28,14 @@
 
     <div class="row row--total">
       <div class="cell cell--label">
-        <ToggleButton name="Total" v-model="showResults"/>
+        <ToggleButton :name="totalText" v-model="showResults"/>
       </div>
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
         class="cell cell--total"
         >
-          <span class="result" v-show="showResults">
+          <span class="result" v-show="showResults" :title="totalLabel(playerNum)">
             {{player.total}}
           </span>
         </div>
@@ -59,12 +59,16 @@ export default {
   },
   computed: {
     ...mapGetters(['activePlayers', 'winner']),
-    ...mapState(['playerCount', 'scoreTypes'])
+    ...mapState(['playerCount', 'scoreTypes', 'localizedScoreTypes']),
+    totalText () {
+      return this.$t('total')
+    }
   },
   methods: {
     score (scoreType, playerNum) {
       return this.activePlayers[playerNum].scores[scoreType]
     },
+
     scoreId (scoreType, playerNum) {
       return `player-${playerNum}-score-${scoreType
         .toLowerCase()
@@ -72,7 +76,11 @@ export default {
     },
 
     label (scoreType, playerNum) {
-      return `Player ${playerNum} ${scoreType} score`
+      return this.$t('pointsInputTitle', { playerNum, scoreType })
+    },
+
+    totalLabel (playerNum) {
+      return this.$t('playerTotalTitle', { playerNum })
     },
 
     updateScore (event, playerNum, scoreType) {
@@ -105,11 +113,11 @@ $color--border: rgba(0, 0, 0, 0.2);
 .row {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: minmax(8rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(8.5rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
 
   @include break-phone {
-    grid-template-columns: minmax(10rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: minmax(11rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
   }
 
   + .row {
