@@ -7,7 +7,7 @@
         <router-link to="/" class="nav-item scoresheet">Scoresheet</router-link>
         <span class="nav-item automata" title="The automata feature is not implemented yet">
           Automata
-          <div class="coming-soon">Coming soon</div>
+          <div class="coming-soon">{{ $t('comingSoon') }}</div>
         </span>
       </nav>
       <main id="main">

@@ -10,9 +10,9 @@
           :class="{ active: (p === playerCount) }"
           @click="$store.commit('setPlayerCount', p)"
         >{{ p }}</button>
-        <span>Players</span>
+        <span>{{ $t('playerTitle') }}</span>
       </div>
-      <button class="action reset" @click="reset()">Reset Points</button>
+      <button class="action reset" @click="reset()">{{ $t('resetPoints') }}</button>
     </div>
   </div>
 </template>

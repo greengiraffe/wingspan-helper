@@ -2,7 +2,7 @@
   <div class="table">
 
     <div class="row row--player">
-      <p class="cell cell--label">Player</p>
+      <p class="cell cell--label">{{ $t('playerTitle') }}</p>
       <div v-for="player in playerCount" :key="player" class="cell cell--label cell--player-num">{{player}}</div>
     </div>
 
@@ -28,14 +28,14 @@
 
     <div class="row row--total">
       <div class="cell cell--label">
-        <ToggleButton name="Total" v-model="showResults"/>
+        <ToggleButton :name="totalText" v-model="showResults"/>
       </div>
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
         class="cell cell--total"
         >
-          <span class="result" v-show="showResults">
+          <span class="result" v-show="showResults" :title="totalLabel(playerNum)">
             {{player.total}}
           </span>
         </div>
@@ -54,7 +54,8 @@ export default {
   },
   data () {
     return {
-      showResults: false
+      showResults: false,
+      totalText: this.$t('total')
     }
   },
   computed: {
@@ -65,6 +66,7 @@ export default {
     score (scoreType, playerNum) {
       return this.activePlayers[playerNum].scores[scoreType]
     },
+
     scoreId (scoreType, playerNum) {
       return `player-${playerNum}-score-${scoreType
         .toLowerCase()
@@ -72,7 +74,11 @@ export default {
     },
 
     label (scoreType, playerNum) {
-      return `Player ${playerNum} ${scoreType} score`
+      return this.$t('pointsInputTitle', { playerNum, scoreType })
+    },
+
+    totalLabel (playerNum) {
+      return this.$t('playerTotalTitle', { playerNum })
     },
 
     updateScore (event, playerNum, scoreType) {

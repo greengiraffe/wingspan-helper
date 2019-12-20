@@ -1,21 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import i18n from './i18n'
 
 Vue.use(Vuex)
 
-const defaultScores = {
-  'birds': -1,
-  'bonus cards': -1,
-  'end-of-round goals': -1,
-  'eggs': -1,
-  'food on cards': -1,
-  'tucked cards': -1
-}
+const defaultScores = i18n.t('scoreTypes').reduce((acc, value) => {
+  acc[value] = -1
+  return acc
+}, {})
 
 export default new Vuex.Store({
   state: {
     playerCount: 5,
-    scoreTypes: ['birds', 'bonus cards', 'end-of-round goals', 'eggs', 'food on cards', 'tucked cards'],
+    scoreTypes: i18n.t('scoreTypes'),
     players: {
       1: { scores: Object.assign({}, defaultScores), total: 0 },
       2: { scores: Object.assign({}, defaultScores), total: 0 },
