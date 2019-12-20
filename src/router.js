@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store'
+// import i18n from './i18n'
 import Scoresheet from './views/Scoresheet.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '*',
+      path: '/:lang*', // allow a language prefix
       name: 'scoresheet',
       component: Scoresheet
     }
@@ -23,3 +25,25 @@ export default new Router({
     // }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const routeParamLang = to.params.lang ? to.params.lang.toLowerCase() : undefined
+  const stateLang = store.state.language
+
+  if (
+    routeParamLang &&
+    routeParamLang !== stateLang &&
+    ['en', 'de'].includes(routeParamLang)
+  ) {
+    // set language based on router param
+    store.dispatch('setLanguage', routeParamLang)
+  } else if (store.state.language === null) {
+    // set language based on user system locale
+    const isGerman = navigator.language.toLowerCase().includes('de')
+    store.dispatch('setLanguage', isGerman ? 'de' : 'en')
+  }
+
+  next()
+})
+
+export default router

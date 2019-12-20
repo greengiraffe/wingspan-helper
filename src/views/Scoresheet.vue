@@ -3,15 +3,8 @@
     <!-- <Slider v-model.number="playerCount"/> -->
     <ScoringTable />
     <div class="action-bar">
-      <div class="action player-count">
-        <button
-          v-for="p in players"
-          :key="p"
-          :class="{ active: (p === playerCount) }"
-          @click="$store.commit('setPlayerCount', p)"
-        >{{ p }}</button>
-        <span>{{ $t('playerTitle') }}</span>
-      </div>
+      <PlayerCountChooser class="action player-count"/>
+      <LanguageToggle />
       <button class="action reset" @click="reset()">{{ $t('resetPoints') }}</button>
     </div>
   </div>
@@ -20,23 +13,15 @@
 <script>
 // @ is an alias to /src
 import ScoringTable from '@/components/ScoringTable.vue'
+import PlayerCountChooser from '@/components/PlayerCountChooser.vue'
+import LanguageToggle from '@/components/LanguageToggle.vue'
 
 export default {
   name: 'home',
   components: {
-    ScoringTable
-  },
-  data () {
-    return {
-      players: [2, 3, 4, 5]
-    }
-  },
-  computed: {
-    playerCount: {
-      get () {
-        return this.$store.state.playerCount
-      }
-    }
+    ScoringTable,
+    PlayerCountChooser,
+    LanguageToggle
   },
   methods: {
     reset () {
@@ -46,7 +31,7 @@ export default {
 
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   .action-bar {
     margin-top: 1rem;
     display: flex;
