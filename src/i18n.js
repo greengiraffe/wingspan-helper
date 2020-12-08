@@ -6,6 +6,7 @@ Vue.use(VueI18n)
 const messages = {
   en: {
     playerTitle: 'Player',
+    reset: 'Reset',
     resetPoints: 'Reset points',
     pointsInputTitle: '%{scoreType} points for player %{playerNum}',
     playerTotalTitle: 'total points for player %{playerNum}',
@@ -15,6 +16,7 @@ const messages = {
   },
   de: {
     playerTitle: 'Spieler',
+    reset: 'Zurücksetzen',
     resetPoints: 'Punkte zurücksetzen',
     pointsInputTitle: 'Punkte für %{scoreType} für Spieler %{playerNum}',
     playerTotalTitle: 'Gesamtpunkte für Spieler %{playerNum}',
