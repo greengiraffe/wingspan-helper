@@ -2,19 +2,31 @@
   <div class="table">
 
     <div class="row row--player">
-      <p class="cell cell--label">{{ $t('playerTitle') }}</p>
-      <div v-for="player in playerCount" :key="player" class="cell cell--label cell--player-num">{{player}}</div>
+      <div class="cell cell--label">
+        <span>{{ $t('playerTitle') }}</span>
+        <span class="cell reset">
+          <button @click="resetTitles($event)">{{ $t('reset') }}</button>
+        </span>
+      </div>
+      <div v-for="(player, playerNum) in activePlayers" :key="playerNum" :class="'cell-' + activePlayerCount() +'up cell cell--label cell--player-num'">
+        <input
+          class="cell-input"
+          type="string"
+          :value="player.title"
+          @input="updateTitle($event, playerNum)"
+        />
+      </div>
     </div>
 
     <div class="row" v-for="(scoreType, i) in scoreTypes" :key="i">
       <p class="cell cell--label">{{localizedScoreTypes[i]}}</p>
       <div
-        class="cell cell--score"
+        :class="'cell-' + activePlayerCount() +'up cell cell--score'"
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
       >
         <input
-          class="score-input"
+          class="cell-input"
           type="number"
           min="0"
           :id="scoreId(scoreType, playerNum)"
@@ -33,7 +45,7 @@
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
-        class="cell cell--total"
+        :class="'cell-' + activePlayerCount() +'up cell cell--total'"
         >
           <span class="result" v-show="showResults" :title="totalLabel(playerNum)">
             {{player.total}}
@@ -97,7 +109,24 @@ export default {
         scoreType,
         score
       })
+    },
+
+    activePlayerCount () {
+      return Object.keys(this.activePlayers).length
+    },
+
+    updateTitle (event, playerNum) {
+      const title = event.target.value
+      this.$store.commit('setPlayerTitle', {
+        playerNum,
+        title
+      })
+    },
+
+    resetTitles () {
+      this.$store.commit('resetPlayerTitles', {})
     }
+
   }
 }
 </script>
@@ -113,11 +142,11 @@ $color--border: rgba(0, 0, 0, 0.2);
 .row {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: minmax(8.5rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(8.5rem, 1fr) repeat(60, 1fr);
   text-align: center;
 
   @include break-phone {
-    grid-template-columns: minmax(11rem, 1fr) 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: minmax(11rem, 1fr) repeat(60, 1fr);
   }
 
   + .row {
@@ -129,12 +158,32 @@ $color--border: rgba(0, 0, 0, 0.2);
   }
 }
 
+.cell-2up {
+  grid-column-start: span 30;
+}
+
+.cell-3up {
+  grid-column-start: span 20;
+}
+
+.cell-4up {
+  grid-column-start: span 15;
+}
+
+.cell-5up {
+  grid-column-start: span 12;
+}
+
 .row--player {
   font-weight: bold;
 
   + .row {
     border-top-width: 2px;
   }
+}
+
+.reset {
+  font-size: smaller;
 }
 
 .cell {
@@ -176,12 +225,19 @@ $color--border: rgba(0, 0, 0, 0.2);
   padding: 0;
 }
 
-.score-input {
+.cell--score .cell-input {
+  background-color: $color-fg--light;
+}
+
+.cell--player-num .cell-input {
+  background-color: inherit;
+}
+
+.cell-input {
   width: 100%;
   height:  100%;
   border: 0;
   text-align: center;
-  background-color: $color-fg--light;
 
   &:focus {
   outline: 0;

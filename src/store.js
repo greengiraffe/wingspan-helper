@@ -5,6 +5,7 @@ import i18n from './i18n'
 Vue.use(Vuex)
 
 const scoreTypes = i18n.t('scoreTypes', 'en')
+const stateStorageKey = 'state'
 
 // transform labels array to object keys
 const defaultScores = scoreTypes.reduce((acc, value) => {
@@ -12,20 +13,76 @@ const defaultScores = scoreTypes.reduce((acc, value) => {
   return acc
 }, {})
 
-export default new Vuex.Store({
-  state: {
-    language: null, // first set by router
-    playerCount: 5,
-    scoreTypes,
-    localizedScoreTypes: i18n.t('scoreTypes'),
-    players: {
-      1: { scores: Object.assign({}, defaultScores), total: 0 },
-      2: { scores: Object.assign({}, defaultScores), total: 0 },
-      3: { scores: Object.assign({}, defaultScores), total: 0 },
-      4: { scores: Object.assign({}, defaultScores), total: 0 },
-      5: { scores: Object.assign({}, defaultScores), total: 0 }
+// store the updated state every mutation
+const localStoragePlugin = store => {
+  // called when the store is initialized
+  if (localStorageAvailable()) {
+    store.subscribe((mutation, state) => {
+      // called after every mutation.
+      localStorage.setItem('state', JSON.stringify(state))
+    })
+  }
+}
+
+const localStorageAvailable = () => {
+  var storage
+  try {
+    storage = window.localStorage
+    var x = '__storage_test__'
+    storage.setItem(x, x)
+    storage.removeItem(x)
+    return true
+  } catch (e) {
+    return e instanceof DOMException && (
+      // everything except Firefox
+      e.code === 22 ||
+      // Firefox
+      e.code === 1014 ||
+      // test name field too, because code might not be present
+      // everything except Firefox
+      e.name === 'QuotaExceededError' ||
+      // Firefox
+      e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      (storage && storage.length !== 0)
+  }
+}
+
+const loadState = () => {
+  let state = defaultState
+  if (localStorageAvailable()) {
+    try {
+      state = JSON.parse(localStorage.getItem(stateStorageKey))
+    } catch (e) {
+      // corrupt, nevermind
+      localStorage.removeItem(stateStorageKey)
     }
-  },
+    if (!state || typeof state !== 'object' || defaultState.version !== state.version) {
+      localStorage.removeItem(stateStorageKey)
+      state = defaultState
+    }
+  }
+  return state
+}
+
+const defaultState = {
+  version: 1, // bump this every time the state schema changes
+  language: null, // first set by router
+  playerCount: 5,
+  scoreTypes,
+  localizedScoreTypes: i18n.t('scoreTypes'),
+  players: {
+    1: { scores: Object.assign({}, defaultScores), total: 0, title: '1' },
+    2: { scores: Object.assign({}, defaultScores), total: 0, title: '2' },
+    3: { scores: Object.assign({}, defaultScores), total: 0, title: '3' },
+    4: { scores: Object.assign({}, defaultScores), total: 0, title: '4' },
+    5: { scores: Object.assign({}, defaultScores), total: 0, title: '5' }
+  }
+}
+
+export default new Vuex.Store({
+  state: loadState(),
+  plugins: [localStoragePlugin],
   getters: {
     activePlayers: state => {
       return Object.fromEntries(Object.entries(state.players).slice(0, state.playerCount))
@@ -66,6 +123,14 @@ export default new Vuex.Store({
       for (let i = 1; i <= 5; i++) {
         state.players[i].scores = Object.assign({}, defaultScores)
         state.players[i].total = 0
+      }
+    },
+    setPlayerTitle (state, payload) {
+      state.players[payload.playerNum].title = payload.title
+    },
+    resetPlayerTitles (state, payload) {
+      for (let i = 1; i <= 5; i++) {
+        state.players[i].title = i
       }
     }
   },
