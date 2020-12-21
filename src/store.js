@@ -66,11 +66,12 @@ const loadState = () => {
 }
 
 const defaultState = {
-  version: 1, // bump this every time the state schema changes
+  version: 2, // bump this every time the state schema changes
   language: 'en',
   playerCount: 5,
   scoreTypes,
   localizedScoreTypes: i18n.t('scoreTypes'),
+  touchedPlayerTitles: false,
   players: {
     1: { scores: Object.assign({}, defaultScores), total: 0, title: '1' },
     2: { scores: Object.assign({}, defaultScores), total: 0, title: '2' },
@@ -136,11 +137,13 @@ export default new Vuex.Store({
     },
     setPlayerTitle (state, payload) {
       state.players[payload.playerNum].title = payload.title
+      state.touchedPlayerTitles = true
     },
     resetPlayerTitles (state, payload) {
       for (let i = 1; i <= 5; i++) {
         state.players[i].title = i
       }
+      state.touchedPlayerTitles = false
     }
   },
   actions: {
