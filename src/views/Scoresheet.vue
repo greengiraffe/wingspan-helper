@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <!-- <Slider v-model.number="playerCount"/> -->
+  <div class="scoresheet">
     <ScoringTable />
     <div class="action-bar">
       <PlayerCountChooser class="action player-count"/>
@@ -17,7 +16,7 @@ import PlayerCountChooser from '@/components/PlayerCountChooser.vue'
 import LanguageToggle from '@/components/LanguageToggle.vue'
 
 export default {
-  name: 'home',
+  name: 'Scoresheet',
   components: {
     ScoringTable,
     PlayerCountChooser,

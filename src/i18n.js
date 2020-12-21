@@ -5,14 +5,14 @@ Vue.use(VueI18n)
 
 const messages = {
   en: {
-    playerTitle: 'Player',
+    playerTitle: 'Players',
     reset: 'Reset',
     resetPoints: 'Reset points',
     pointsInputTitle: '%{scoreType} points for player %{playerNum}',
     playerTotalTitle: 'total points for player %{playerNum}',
     comingSoon: 'coming soon',
     total: 'Total',
-    scoreTypes: ['Birds', 'Bonus cards', 'End-of-round goals', 'Eggs', 'Food on cards', 'Tucked cards']
+    scoreTypes: ['Birds', 'Bonus cards', 'End-of-round goals', 'Eggs', 'Food on cards', 'Tucked cards', 'Nectar']
   },
   de: {
     playerTitle: 'Spieler',
@@ -22,7 +22,7 @@ const messages = {
     playerTotalTitle: 'Gesamtpunkte für Spieler %{playerNum}',
     comingSoon: 'kommt bald',
     total: 'Gesamt',
-    scoreTypes: ['Vögel', 'Bonuskarten', 'Rundenziele', 'Eier', 'Gelagertes Futter', 'Karten unter Vögeln']
+    scoreTypes: ['Vögel', 'Bonuskarten', 'Rundenziele', 'Eier', 'Gelagertes Futter', 'Karten unter Vögeln', 'Nektar']
   }
 }
 
