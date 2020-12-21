@@ -25,10 +25,10 @@ const localStoragePlugin = store => {
 }
 
 const localStorageAvailable = () => {
-  var storage
+  let storage
   try {
     storage = window.localStorage
-    var x = '__storage_test__'
+    const x = '__storage_test__'
     storage.setItem(x, x)
     storage.removeItem(x)
     return true
