@@ -67,7 +67,7 @@ const loadState = () => {
 
 const defaultState = {
   version: 1, // bump this every time the state schema changes
-  language: null, // first set by router
+  language: 'en',
   playerCount: 5,
   scoreTypes,
   localizedScoreTypes: i18n.t('scoreTypes'),

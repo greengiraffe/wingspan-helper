@@ -1,6 +1,6 @@
 # Wingspan Helper
 
-A small web app dedicated to the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/). It currently provides a digital scoresheet. A companion for the Automata for solo playing is planned.
+A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/).
 
 :arrow_right: Try it out at https://wingspan-helper.now.sh/
 
