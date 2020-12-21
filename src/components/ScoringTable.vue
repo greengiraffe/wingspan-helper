@@ -47,7 +47,12 @@
         :key="playerNum"
         :class="'cell-' + activePlayerCount() +'up cell cell--total'"
         >
-          <span class="result" v-show="showResults" :title="totalLabel(playerNum)">
+          <span
+            class="result"
+            :class="{ winner: winnerIDs.includes(playerNum) }"
+            v-show="showResults"
+            :title="totalLabel(playerNum)"
+          >
             {{player.total}}
           </span>
         </div>
@@ -70,8 +75,8 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['activePlayers', 'winner']),
-    ...mapState(['playerCount', 'scoreTypes', 'localizedScoreTypes']),
+    ...mapGetters(['activePlayers', 'winnerIDs']),
+    ...mapState(['playerCount', 'scoreTypes', 'localizedScoreTypes', 'showTotal']),
     totalText () {
       return this.$t('total')
     }
@@ -252,6 +257,10 @@ $color--border: rgba(0, 0, 0, 0.2);
 
 /deep/ .toggle-button {
   font-weight: bold;
+}
+
+.result.winner {
+  border-bottom: 3px solid currentColor;
 }
 
 </style>

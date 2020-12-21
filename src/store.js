@@ -87,8 +87,17 @@ export default new Vuex.Store({
     activePlayers: state => {
       return Object.fromEntries(Object.entries(state.players).slice(0, state.playerCount))
     },
-    winners: (state, getters) => {
-      // TODO
+    winnerIDs: (state, getters) => {
+      return Object.entries(state.players)
+        .slice(0, state.playerCount) // object to array: [[playerId, playerObject],...]
+        .sort((a, b) => a[1].total < b[1].total) // highest scores first
+        .filter((current, i, array) => {
+          // remove 0-scores
+          if (current[1].total === 0) return false
+          // keep (possibly multiple) winners, discard others
+          return current[1].total >= array[0][1].total
+        })
+        .map(v => v[0]) // get winner IDs (as strings!)
     }
   },
   mutations: {
