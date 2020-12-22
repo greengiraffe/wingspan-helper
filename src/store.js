@@ -89,9 +89,8 @@ export default new Vuex.Store({
       return Object.fromEntries(Object.entries(state.players).slice(0, state.playerCount))
     },
     winnerIDs: (state, getters) => {
-      return Object.entries(state.players)
-        .slice(0, state.playerCount) // object to array: [[playerId, playerObject],...]
-        .sort((a, b) => a[1].total < b[1].total) // highest scores first
+      return Object.entries(getters.activePlayers) // object to array: [[playerId, playerObject],...]
+        .sort((a, b) => b[1].total - a[1].total) // highest scores first
         .filter((current, i, array) => {
           // remove 0-scores
           if (current[1].total === 0) return false
