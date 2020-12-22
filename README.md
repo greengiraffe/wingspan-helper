@@ -6,7 +6,8 @@ A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaierga
 
 :sparkles: You can add the app to your homescreen and use it offline if you want!
 
-![Screenshot](https://user-images.githubusercontent.com/9062294/68215859-43fe3080-ffe0-11e9-8b88-8f010e24a2f9.png)
+![Wingspan Helper Screenshot](https://user-images.githubusercontent.com/9062294/102914405-843c9e80-4480-11eb-942f-fe00f1ac2126.png)
+
 
 ## Credits
 
