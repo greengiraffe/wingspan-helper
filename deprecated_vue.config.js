@@ -12,14 +12,4 @@ module.exports = {
       msTileImage: 'img/icons/icon-144x144.png'
     }
   },
-
-  // pluginOptions: {
-  //   'style-resources-loader': {
-  //     preProcessor: 'scss',
-  //     patterns: [
-  //       path.resolve(__dirname, 'src/styles/_variables.scss'),
-  //       path.resolve(__dirname, 'src/styles/_mixins.scss')
-  //     ]
-  //   }
-  // }
 }
