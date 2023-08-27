@@ -1,6 +1,8 @@
 <template>
   <div class="action">
-    <button @click="toggleLanguage">{{ currentLanguage }}</button>
+    <button @click="toggleLanguage">
+      {{ currentLanguage }}
+    </button>
   </div>
 </template>
 

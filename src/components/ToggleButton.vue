@@ -1,19 +1,34 @@
 <template>
   <label class="toggle-button">
     <div class="toggle">
-      <input type="checkbox" :checked="value" @change="$emit('change', $event.target.checked)">
-      <span class="slider" aria-hidden="true"></span>
+      <input
+        type="checkbox"
+        :checked="value"
+        @change="$emit('change', $event.target.checked)"
+      >
+      <span
+        class="slider"
+        aria-hidden="true"
+      />
     </div>
-    <span v-if="name" class="name">{{ name }}</span>
+    <span
+      v-if="name"
+      class="name"
+    >{{ name }}</span>
   </label>
 </template>
 
 <script>
 export default {
   name: 'ToggleButton',
+  model: {
+    prop: 'value',
+    event: 'change'
+  },
   props: {
     name: {
-      type: String
+      type: String,
+      default: ''
     },
     value: {
       type: Boolean,
@@ -24,10 +39,6 @@ export default {
     return {
       toggled: this.value
     }
-  },
-  model: {
-    prop: 'value',
-    event: 'change'
   }
 }
 </script>

@@ -2,9 +2,14 @@
   <div class="scoresheet">
     <ScoringTable />
     <div class="action-bar">
-      <PlayerCountChooser class="action player-count"/>
+      <PlayerCountChooser class="action player-count" />
       <LanguageToggle />
-      <button class="action reset" @click="reset()">{{ $t('resetPoints') }}</button>
+      <button
+        class="action reset"
+        @click="reset()"
+      >
+        {{ $t('resetPoints') }}
+      </button>
     </div>
   </div>
 </template>
@@ -16,6 +21,7 @@ import PlayerCountChooser from '@/components/PlayerCountChooser.vue'
 import LanguageToggle from '@/components/LanguageToggle.vue'
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Scoresheet',
   components: {
     ScoringTable,
