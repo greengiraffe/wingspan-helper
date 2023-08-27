@@ -43,6 +43,7 @@ $toggle-inset: 0.08em;
   text-align: left;
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 // Hide default checkbox
