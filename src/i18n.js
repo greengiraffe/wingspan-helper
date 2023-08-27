@@ -1,7 +1,5 @@
-import Vue from 'vue'
-import VueI18n from 'vue-i18n'
+import {createI18n} from "vue-i18n";
 
-Vue.use(VueI18n)
 
 const messages = {
   en: {
@@ -26,8 +24,8 @@ const messages = {
   }
 }
 
-export default new VueI18n({
-  locale: 'en',
+export const i18n = createI18n({
+  locale: 'de',
   fallbackLocale: 'en',
-  messages
+  messages,
 })

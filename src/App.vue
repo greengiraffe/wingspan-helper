@@ -6,7 +6,7 @@
       alt="Wingspan Helper logo"
     >
 
-    <div id="app">
+    <div id="appContainer">
       <main id="main">
         <Scoresheet />
       </main>
@@ -55,7 +55,7 @@ export default {
   }
 }
 
-#app {
+#appContainer {
   background-color: $color-fg--dark;
   display: flex;
   flex-direction: column;

@@ -3,8 +3,8 @@
     <div class="toggle">
       <input
         type="checkbox"
-        :checked="value"
-        @change="$emit('change', $event.target.checked)"
+        :checked="modelValue"
+        @change="toggle"
       >
       <span
         class="slider"
@@ -21,23 +21,26 @@
 <script>
 export default {
   name: 'ToggleButton',
-  model: {
-    prop: 'value',
-    event: 'change'
-  },
   props: {
     name: {
       type: String,
       default: ''
     },
-    value: {
+    modelValue: {
       type: Boolean,
       default: false
     }
   },
+  emits: ['update:modelValue'],
   data () {
     return {
       toggled: this.value
+    }
+  },
+  methods: {
+    toggle(event) {
+      this.toggled = event.target.checked
+      this.$emit('update:modelValue', this.toggled)
     }
   }
 }
