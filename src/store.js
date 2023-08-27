@@ -149,7 +149,7 @@ export const store = createStore({
   actions: {
     setLanguage({ commit }, language) {
       document.documentElement.setAttribute("lang", language);
-      i18n.locale = language;
+      i18n.global.locale = language;
       commit("setLanguage", language);
     },
 
