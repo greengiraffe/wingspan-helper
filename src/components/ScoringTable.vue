@@ -1,75 +1,86 @@
 <template>
   <div class="table">
-
     <div class="row row--player">
       <div class="cell cell--label">
         <span>{{ $t('playerTitle') }}</span>
         <button
-          class="reset-names-btn"
           v-show="touchedPlayerTitles"
+          class="reset-names-btn"
           :title="$t('resetPlayerTitleA11y')"
           @click="resetPlayerTitles()"
-        >X</button>
+        >
+          X
+        </button>
       </div>
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
-        :class="'cell-' + activePlayerCount() + 'up cell cell--label cell--player-num cell--no-pad'">
+        :class="'cell-' + activePlayerCount() + 'up cell cell--label cell--player-num cell--no-pad'"
+      >
         <input
           class="cell-input"
           type="string"
           :value="player.title"
           @click="$event.target.select()"
           @input="updatePlayerTitle($event, playerNum)"
-        />
+        >
       </div>
     </div>
 
-    <div class="row" v-for="(scoreType, i) in scoreTypes" :key="i">
-      <p class="cell cell--label">{{localizedScoreTypes[i]}}</p>
+    <div
+      v-for="(scoreType, i) in scoreTypes"
+      :key="i"
+      class="row"
+    >
+      <p class="cell cell--label">
+        {{ localizedScoreTypes[i] }}
+      </p>
       <div
-        :class="'cell-' + activePlayerCount() +'up cell cell--no-pad'"
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
+        :class="'cell-' + activePlayerCount() +'up cell cell--no-pad'"
       >
         <input
+          :id="scoreId(scoreType, playerNum)"
           class="cell-input"
           type="number"
           min="0"
-          :id="scoreId(scoreType, playerNum)"
           :title="label(localizedScoreTypes[i], playerNum)"
           :aria-label="label(localizedScoreTypes[i], playerNum)"
           :value="score(scoreType, playerNum) == -1 ? null : score(scoreType, playerNum)"
           @input="updateScore($event, playerNum, scoreType)"
-        />
+        >
       </div>
     </div>
 
     <div class="row row--total">
       <div class="cell cell--label">
-        <ToggleButton :name="totalText" v-model="showResults"/>
+        <ToggleButton
+          v-model="showResults"
+          :name="totalText"
+        />
       </div>
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
         :class="'cell-' + activePlayerCount() +'up cell cell--total'"
+      >
+        <span
+          v-show="showResults"
+          class="result"
+          :class="{ winner: winnerIDs.includes(playerNum) }"
+          :title="totalLabel(playerNum)"
         >
-          <span
-            class="result"
-            :class="{ winner: winnerIDs.includes(playerNum) }"
-            v-show="showResults"
-            :title="totalLabel(playerNum)"
-          >
-            {{player.total}}
-          </span>
-        </div>
+          {{ player.total }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import ToggleButton from './ToggleButton'
+import ToggleButton from './ToggleButton.vue'
 
 export default {
   name: 'ScoringTable',

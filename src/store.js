@@ -128,7 +128,7 @@ export default new Vuex.Store({
       state.players[payload.player].scores = Object.assign({}, defaultScores)
       state.players[payload.player].total = 0
     },
-    resetAllScores (state, payload) {
+    resetAllScores (state) {
       for (let i = 1; i <= 5; i++) {
         state.players[i].scores = Object.assign({}, defaultScores)
         state.players[i].total = 0
@@ -138,7 +138,7 @@ export default new Vuex.Store({
       state.players[payload.playerNum].title = payload.title
       state.touchedPlayerTitles = true
     },
-    resetPlayerTitles (state, payload) {
+    resetPlayerTitles (state) {
       for (let i = 1; i <= 5; i++) {
         state.players[i].title = i
       }
