@@ -2,7 +2,7 @@
 
 A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/).
 
-:arrow_right: Try it out at https://wingspan-helper.now.sh/
+:arrow_right: Try it out at https://wingspan-helper.vercel.app/
 
 :sparkles: You can add the app to your homescreen and use it offline if you want!
 
@@ -23,7 +23,7 @@ This project is licensed under the terms of the MIT license. Feel free to contri
 
 ## Development
 
-The website is a single page application based on [Vue.js](https://vuejs.org/) and [vue-cli](https://cli.vuejs.org/).
+The website is a single page application based on [Vue.js](https://vuejs.org/) and [Vite](https://vitejs.dev/).
 
 ### Project setup
 
@@ -40,11 +40,12 @@ cd wingspan-helper
 yarn install
 
 # Run the development server
-yarn run serve
+yarn dev
 ```
 
 ### Commands
 
-- `yarn run serve` – Compiles and hot-reloads for development
-- `yarn run build` – Compiles and minifies for production
-- `yarn run lint` – Lints and fixes files
+- `yarn dev` – Compiles and hot-reloads for development
+- `yarn build` – Compiles and minifies for production
+- `yarn serve` – Serves the production build
+- `yarn lint` – Lints and fixes files
