@@ -269,10 +269,6 @@ $color--border: rgba(0, 0, 0, 0.2);
   }
 }
 
-/deep/ .toggle-button {
-  font-weight: bold;
-}
-
 .result.winner {
   border-bottom: 3px solid currentColor;
 }

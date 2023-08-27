@@ -1,6 +1,10 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="./assets/img/logo.svg" alt="Wingspan Helper logo" />
+    <img
+      id="logo"
+      src="./assets/img/logo.svg"
+      alt="Wingspan Helper logo"
+    >
 
     <div id="app">
       <main id="main">
@@ -17,7 +21,8 @@
 </template>
 
 <script>
-import Scoresheet from './views/Scoresheet'
+import Scoresheet from './views/Scoresheet.vue'
+
 export default {
   name: 'App',
   components: { Scoresheet }
