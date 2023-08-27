@@ -22,7 +22,8 @@
     "eslint": "^8.48.0",
     "eslint-plugin-vue": "^9.17.0",
     "sass": "^1.66.1",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vite-plugin-pwa": "^0.16.4"
   },
   "homepage": "https://wingspan-helper.now.sh",
   "license": "MIT"
