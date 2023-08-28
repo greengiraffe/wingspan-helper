@@ -21,6 +21,16 @@ const messages = {
     comingSoon: 'kommt bald',
     total: 'Gesamt',
     scoreTypes: ['Vögel', 'Bonuskarten', 'Rundenziele', 'Eier', 'Gelagertes Futter', 'Karten unter Vögeln', 'Nektar']
+  },
+  zh: {
+    playerTitle: '玩家',
+    resetPlayerTitleA11y: '重置玩家名',
+    resetPoints: '重置分数',
+    pointsInputTitle: '玩家%{playerNum}的%{scoreType}分数',
+    playerTotalTitle: '玩家 %{playerNum} 总分',
+    comingSoon: '即将到来',
+    total: '总计',
+    scoreTypes: ['鸟类牌', '奖励卡', '轮末目标', '鸟蛋', '储存的食物', '塞入的卡牌', '花蜜']
   }
 }
 
