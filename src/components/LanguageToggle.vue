@@ -1,22 +1,33 @@
 <template>
   <div class="action">
-    <button @click="toggleLanguage">
-      {{ currentLanguage }}
-    </button>
+    <select v-model="currentLanguage">
+      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
+        {{ lang }}
+      </option>
+    </select>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'LanguageToggle',
-  computed: {
-    currentLanguage () {
-      return this.$store.state.language === 'en' ? 'de' : 'en'
+  data () {
+    return {
+      langs: [
+        'en',
+        'de',
+        'zh'
+      ],
+      currentLanguage: 'en'
     }
   },
   methods: {
-    toggleLanguage () {
-      this.$store.dispatch('toggleLanguage')
+    ...mapActions(['setLanguage'])
+  },
+  watch: {
+    currentLanguage (v) {
+      this.setLanguage(v)
     }
   }
 }
