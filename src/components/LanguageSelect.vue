@@ -51,8 +51,8 @@ export default {
     padding: 0.25rem 2rem 0.25rem 1rem;
     border-radius: $border-radius-default;
     background-color: $color-fg--light;
-    background-image: url('img/icons/arrow-down.svg');
-    background-position: 85% 50%;
+    background-image: url('../assets/img/arrow-down.svg');
+    background-position: 80% 50%;
     background-repeat: no-repeat;
 
     &:hover {
