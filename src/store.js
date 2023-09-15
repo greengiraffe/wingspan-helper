@@ -61,6 +61,7 @@ const loadState = () => {
       state = defaultState;
     }
   }
+  i18n.global.locale = state.language;
   return state;
 };
 
@@ -151,11 +152,6 @@ export const store = createStore({
       document.documentElement.setAttribute("lang", language);
       i18n.global.locale = language;
       commit("setLanguage", language);
-    },
-
-    toggleLanguage({ state, dispatch }) {
-      const newLang = state.language === "en" ? "de" : "en";
-      dispatch("setLanguage", newLang);
     },
   },
 });

@@ -1,9 +1,9 @@
 <template>
   <div class="action language-select">
-    <select v-model="currentLanguage">
+    <select v-model="language">
       <option
         v-for="(lang, i) in langs"
-        :key="`Lang${i}`"
+        :key="lang"
         :value="lang"
       >
         {{ lang }}
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
 export default {
   name: 'LanguageSelect',
   data() {
@@ -23,16 +22,17 @@ export default {
         'de',
         'zh'
       ],
-      currentLanguage: 'en'
     }
   },
-  watch: {
-    currentLanguage(v) {
-      this.setLanguage(v)
+  computed: {
+    language: {
+      get() {
+        return this.$store.state.language
+      },
+      set(value) {
+        this.$store.dispatch('setLanguage', value)
+      }
     }
-  },
-  methods: {
-    ...mapActions(['setLanguage'])
   },
 }
 </script>

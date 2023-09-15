@@ -57,7 +57,7 @@
       <div class="cell cell--label">
         <ToggleButton
           v-model="showResults"
-          :name="totalText"
+          :name="$t('total')"
         />
       </div>
       <div
@@ -101,9 +101,6 @@ export default {
       'showTotal',
       'touchedPlayerTitles'
     ]),
-    totalText () {
-      return this.$t('total')
-    }
   },
   methods: {
     score (scoreType, playerNum) {
