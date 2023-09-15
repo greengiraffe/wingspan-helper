@@ -59,7 +59,7 @@ export default {
   background-color: $color-fg--dark;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 5px 47px 0px rgb(66, 61, 55);
+  box-shadow: $shadow-large;
   border: 5px solid $color-fg--dark;
   border-radius: $border-radius-default;
 }
@@ -69,9 +69,9 @@ export default {
   padding: 1rem 0.5rem;
   flex: 1;
   background-color: $color-fg;
-  border-radius: $border-radius-default;
+  border-radius: calc($border-radius-default - 3px);
   background-clip: border-box;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: $shadow-small;
 
   @include break-phone {
     padding: 1rem;

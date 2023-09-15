@@ -84,7 +84,7 @@ input {
   right: 0;
   bottom: 0;
   background-color: $color-switch-bg;
-  box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.2);
+  box-shadow: $shadow-focus;
   transition: .2s ease;
   border-radius: $border-radius-default;
 }

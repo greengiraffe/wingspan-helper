@@ -39,6 +39,10 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   margin: 0;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 a {

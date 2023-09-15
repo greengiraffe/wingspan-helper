@@ -59,7 +59,12 @@ export default {
     }
   }
 
+  .action.reset {
+    white-space: nowrap;
+  }
+
   .action.player-count {
+    display: flex;
     border-radius: $border-radius-default;
 
     button {

@@ -4,9 +4,9 @@ $color-fg--light: lighten($color-fg, 5%);
 $color-fg--dark: desaturate(darken($color-fg, 10%), 20%);
 $color-bg: #fff;
 $color-primary: hsl(153, 47%, 49%);
-$color-secondary: hsl(199, 63%, 87%);
+$color-secondary: hsl(199, 100%, 82%);
 $color-text: #333;
-$color-border: rgba(0, 0, 0, 0.5);
+$color-border: adjust-color($color-fg, $lightness: -10%, $saturation: -30%);
 $color-link: darken($color-primary, 10%);
 $color-switch-bg: $color-fg--dark;
 $color-switch-bg--active: $color-primary;
@@ -14,8 +14,24 @@ $color-switch-slider: $color-fg--light;
 $color-nav-bg--active: $color-fg;
 
 // Gradients
-$gradient-page: radial-gradient(circle, rgb(255, 255, 255) 0%, $color-secondary 75%);
+$gradient-page: radial-gradient(circle, rgb(255, 255, 255) 0%, $color-secondary 80%);
 $gradient-page-fallback: #fff;
+
+// Shadows
+$shadow-large:
+  0px 0.4px 1.5px rgba(0, 0, 0, 0.028),
+  0px 1.1px 3.7px rgba(0, 0, 0, 0.04),
+  0px 2px 6.9px rgba(0, 0, 0, 0.05),
+  0px 3.6px 12.3px rgba(0, 0, 0, 0.06),
+  0px 6.7px 23px rgba(0, 0, 0, 0.072),
+  0px 16px 55px rgba(0, 0, 0, 0.1);
+$shadow-small:
+  0px 0.3px 1.1px rgba(0, 0, 0, 0.02),
+  0px 0.9px 3.6px rgba(0, 0, 0, 0.03),
+  0px 4px 16px rgba(0, 0, 0, 0.05)
+;
+$shadow-focus: inset 0 0 5px 1px rgba(0,0,0,0.1);
+$shadow-focus--invalid: inset 0 0 5px 1px rgba(255,0,0,0.6);
 
 // Font stacks
 $font-primary: 'Cardenio Modern', Helvetica, sans-serif;

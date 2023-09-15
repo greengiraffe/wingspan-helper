@@ -161,8 +161,6 @@ export default {
 
 <style scoped lang="scss">
 
-$color--border: rgba(0, 0, 0, 0.2);
-
 .table {
   display: grid;
 }
@@ -178,7 +176,7 @@ $color--border: rgba(0, 0, 0, 0.2);
   }
 
   + .row {
-    border-top: 1px solid $color--border;
+    border-top: 1px solid $color-border;
   }
 
   + .row--total {
@@ -227,7 +225,7 @@ $color--border: rgba(0, 0, 0, 0.2);
   }
 
   + .cell {
-    border-left: 1px solid $color--border;
+    border-left: 1px solid $color-border;
   }
 }
 
@@ -271,11 +269,11 @@ $color--border: rgba(0, 0, 0, 0.2);
 
   &:focus {
   outline: 0;
-    box-shadow: inset 0 0 5px 1px rgba(0,0,0,0.1);
+    box-shadow: $shadow-focus;
   }
 
   &:invalid {
-    box-shadow: inset 0 0 5px 1px rgba(255,0,0,0.6);
+    box-shadow: $shadow-focus--invalid;
     outline: 0;
   }
 }
