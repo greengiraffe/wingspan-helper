@@ -2,11 +2,13 @@
 
 A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/).
 
+:globe_with_meridians: Available in English, German and Chinese (thanks to @LeoQuote)
+
 :arrow_right: Try it out at https://wingspan-helper.vercel.app/
 
 :sparkles: You can add the app to your homescreen and use it offline if you want!
 
-![Wingspan Helper Screenshot](https://user-images.githubusercontent.com/9062294/102914405-843c9e80-4480-11eb-942f-fe00f1ac2126.png)
+![Wingspan Helper Screenshot](https://github.com/greengiraffe/wingspan-helper/assets/9062294/8aba9eb1-5aa7-4fee-8cde-b64bf4717cc7)
 
 
 ## Credits

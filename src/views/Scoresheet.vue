@@ -3,7 +3,7 @@
     <ScoringTable />
     <div class="action-bar">
       <PlayerCountChooser class="action player-count" />
-      <LanguageToggle />
+      <LanguageSelect />
       <button
         class="action reset"
         @click="reset()"
@@ -18,7 +18,7 @@
 // @ is an alias to /src
 import ScoringTable from '@/components/ScoringTable.vue'
 import PlayerCountChooser from '@/components/PlayerCountChooser.vue'
-import LanguageToggle from '@/components/LanguageToggle.vue'
+import LanguageSelect from '@/components/LanguageSelect.vue'
 
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
@@ -26,7 +26,7 @@ export default {
   components: {
     ScoringTable,
     PlayerCountChooser,
-    LanguageToggle
+    LanguageSelect
   },
   methods: {
     reset () {
