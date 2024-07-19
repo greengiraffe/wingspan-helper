@@ -31,7 +31,17 @@ const messages = {
     comingSoon: '即将到来',
     total: '总计',
     scoreTypes: ['鸟类牌', '奖励卡', '轮末目标', '鸟蛋', '储存的食物', '塞入的卡牌', '花蜜']
-  }
+  },
+  nl: {
+    playerTitle: 'Spelers',
+    resetPlayerTitleA11y: 'Spelersnamen opnieuw instellen',
+    resetPoints: 'Punten wissen',
+    pointsInputTitle: '%{scoreType} punten voor speler %{playerNum}',
+    playerTotalTitle: 'totaal aantal punten voor speler %{playerNum}',
+    comingSoon: 'binnenkort',
+    total: 'Totaal',
+    scoreTypes: ['Vogels', 'Bonuskaarten', '"Einde Ronde"-doelen', 'Eieren', 'Voedsel op kaarten', 'Weggestopte kaarten', 'Nektar']
+    }
 }
 
 export const i18n = createI18n({
