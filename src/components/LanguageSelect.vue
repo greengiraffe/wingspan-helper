@@ -20,7 +20,8 @@ export default {
       langs: [
         'en',
         'de',
-        'zh'
+        'zh',
+        'uk'
       ],
     }
   },

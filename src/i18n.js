@@ -31,6 +31,16 @@ const messages = {
     comingSoon: '即将到来',
     total: '总计',
     scoreTypes: ['鸟类牌', '奖励卡', '轮末目标', '鸟蛋', '储存的食物', '塞入的卡牌', '花蜜']
+  },
+  uk: {
+    playerTitle: 'Гравці',
+    resetPlayerTitleA11y: 'скінуті імена гравців',
+    resetPoints: 'Скинути бали',
+    pointsInputTitle: '%{scoreType} балів у гравця %{playerNum}',
+    playerTotalTitle: 'всього балів у гравця %{playerNum}',
+    comingSoon: 'coming soon',
+    total: 'Всього',
+    scoreTypes: ['Птахи', 'Карти бонусів', 'Цілі раундів', 'Яйця', 'Корму на картах', 'Підкладені картки', 'Нектар']
   }
 }
 
