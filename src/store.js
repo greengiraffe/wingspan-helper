@@ -78,6 +78,8 @@ const defaultState = {
     3: { scores: Object.assign({}, defaultScores), total: 0, title: "3" },
     4: { scores: Object.assign({}, defaultScores), total: 0, title: "4" },
     5: { scores: Object.assign({}, defaultScores), total: 0, title: "5" },
+    6: { scores: Object.assign({}, defaultScores), total: 0, title: "6" },
+    7: { scores: Object.assign({}, defaultScores), total: 0, title: "7" },
   },
 };
 

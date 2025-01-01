@@ -17,7 +17,7 @@ export default {
   name: 'PlayerCountChooser',
   data () {
     return {
-      players: [2, 3, 4, 5]
+      players: [2, 3, 4, 5, 6, 7]
     }
   },
   computed: {
