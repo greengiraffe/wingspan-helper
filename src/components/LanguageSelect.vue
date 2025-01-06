@@ -21,7 +21,8 @@ export default {
         'en',
         'de',
         'nl',
-        'zh'
+        'zh',
+        'uk'
       ],
     }
   },

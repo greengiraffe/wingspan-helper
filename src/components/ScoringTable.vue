@@ -197,6 +197,14 @@ export default {
   grid-column-start: span 12;
 }
 
+.cell-6up {
+  grid-column-start: span 10;
+}
+
+.cell-7up {
+  grid-column-start: span 8;
+}
+
 .row--player {
   font-weight: bold;
 

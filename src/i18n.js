@@ -41,11 +41,21 @@ const messages = {
     comingSoon: 'binnenkort',
     total: 'Totaal',
     scoreTypes: ['Vogels', 'Bonuskaarten', '"Einde Ronde"-doelen', 'Eieren', 'Voedsel op kaarten', 'Weggestopte kaarten', 'Nektar']
-    }
+  },
+  uk: {
+    playerTitle: 'Гравці',
+    resetPlayerTitleA11y: 'скінуті імена гравців',
+    resetPoints: 'Скинути бали',
+    pointsInputTitle: '%{scoreType} балів у гравця %{playerNum}',
+    playerTotalTitle: 'всього балів у гравця %{playerNum}',
+    comingSoon: 'coming soon',
+    total: 'Всього',
+    scoreTypes: ['Птахи', 'Карти бонусів', 'Цілі раундів', 'Яйця', 'Корму на картах', 'Підкладені картки', 'Нектар']
+  }
 }
 
 export const i18n = createI18n({
   locale: 'de',
-  fallbackLocale: 'en',
+  fallbackLocale: 'de',
   messages,
 })
