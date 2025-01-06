@@ -2,7 +2,7 @@
   <div class="scoresheet">
     <ScoringTable />
     <div class="action-bar">
-      <PlayerCountChooser class="action player-count" />
+      <PlayerCountChooser />
       <LanguageSelect />
       <button
         class="action reset"
@@ -61,50 +61,6 @@ export default {
 
   .action.reset {
     white-space: nowrap;
-  }
-
-  .action.player-count {
-    display: flex;
-    border-radius: $border-radius-default;
-
-    button {
-      border-radius: 0;
-      background-color: $color-fg--light;
-      color: $color-text;
-      padding: 0.25rem 0.5rem;
-
-      @include break-phone {
-        padding: 0.25rem 1rem;
-      }
-
-      &:hover, &:focus {
-        box-shadow: inset 0 0 0 2px $color-primary;
-      }
-
-      &.active {
-        background-color: $color-primary;
-        color: $color-fg;
-      }
-
-      &:first-child {
-        border-top-left-radius: $border-radius-default;
-        border-bottom-left-radius: $border-radius-default;
-      }
-    }
-
-    span {
-      border-top-right-radius: $border-radius-default;
-      border-bottom-right-radius: $border-radius-default;
-      // box-shadow: inset 0 0 0 2px $color-primary;
-      background-color: $color-fg--light;
-      color: $color-text;
-      border: 0 solid $color-primary;
-      padding: 0.25rem 1rem;
-      font-family: $font-primary;
-      font-weight: bold;
-      letter-spacing: 0.01em;
-      display: inline-block;
-    }
   }
 
 </style>
