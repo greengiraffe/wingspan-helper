@@ -134,10 +134,10 @@ export const store = createStore({
       state.players[payload.player].total = 0;
     },
     resetAllScores(state) {
-      for (let i = 1; i <= 7; i++) {
-        state.players[i].scores = Object.assign({}, defaultScores);
-        state.players[i].total = 0;
-      }
+      Object.keys(state.players).forEach(playerId => {
+        state.players[playerId].scores = Object.assign({}, defaultScores);
+        state.players[playerId].total = 0;
+      });
     },
     setPlayerTitle(state, payload) {
       state.players[payload.playerNum].title = payload.title;
@@ -145,7 +145,9 @@ export const store = createStore({
     },
     resetPlayerTitles(state) {
       for (let i = 1; i <= 7; i++) {
-        state.players[i].title = i;
+        if (state.players[i]) {
+          state.players[i].title = String(i);
+        }
       }
       state.touchedPlayerTitles = false;
     },
