@@ -4,7 +4,7 @@
          url('assets/fonts/cardenio_modern_std.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -13,7 +13,7 @@
          url('assets/fonts/cardenio_modern_bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 // "LXGW WenKai Mono TC" is used only for cyrillic language as a font-fallback for "Cardenio Modern"
@@ -24,7 +24,7 @@
         url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 @font-face {
@@ -33,7 +33,7 @@
         url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
-    font-display: swap;
+    font-display: block;
 }
 
 // fix fallback font sizes
