@@ -2,7 +2,7 @@
 
 A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaiergames.com/games/wingspan/).
 
-:globe_with_meridians: Available in English, German, Chinese (thanks to @LeoQuote) and Dutch (thanks to @pdcleyn)
+:globe_with_meridians: Available in English, German, Chinese (provided by @LeoQuote), Dutch (provided by @pdcleyn) and Ukrainian (provided by @dmytrohoi).
 
 :arrow_right: Try it out at https://wingspan-helper.vercel.app/
 
