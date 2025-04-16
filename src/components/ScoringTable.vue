@@ -169,7 +169,7 @@ export default {
   text-align: center;
 
   @include break-phone {
-    grid-template-columns: minmax(11rem, 1fr) repeat(60, 1fr);
+    grid-template-columns: minmax(11.5rem, 1fr) repeat(60, 1fr);
   }
 
   + .row {
@@ -244,6 +244,11 @@ export default {
   @include break-phone {
     font-size: 1.5rem;
   }
+}
+
+// fix overly large 
+:global(html[lang="uk"] .cell--label)  {
+  letter-spacing: -0.02em;
 }
 
 .cell--player-num {

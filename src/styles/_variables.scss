@@ -34,12 +34,12 @@ $shadow-focus: inset 0 0 5px 1px rgba(0,0,0,0.1);
 $shadow-focus--invalid: inset 0 0 5px 1px rgba(255,0,0,0.6);
 
 // Font stacks
-$font-primary: 'Cardenio Modern', Helvetica, sans-serif;
+$font-primary: 'Cardenio Modern', 'LXGW WenKai Mono TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 $font-text: 'Helvetica Neue', Helvetica, sans-serif;
 
 // Sizes
 $breakpoint-tablet: 700px;
 $breakpoint-phone: 500px;
 $app-padding: 0.5rem;
-$app-width: 40rem + $app-padding;
+$app-width: 45rem + $app-padding;
 $border-radius-default: 15px;
