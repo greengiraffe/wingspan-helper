@@ -134,7 +134,7 @@ export const store = createStore({
       state.players[payload.player].total = 0;
     },
     resetAllScores(state) {
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 7; i++) {
         state.players[i].scores = Object.assign({}, defaultScores);
         state.players[i].total = 0;
       }
@@ -144,7 +144,7 @@ export const store = createStore({
       state.touchedPlayerTitles = true;
     },
     resetPlayerTitles(state) {
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 7; i++) {
         state.players[i].title = i;
       }
       state.touchedPlayerTitles = false;
