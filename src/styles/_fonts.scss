@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Cardenio Modern', sans-serif;
+    font-family: 'Cardenio Modern';
     src: url('assets/fonts/cardenio_modern_std.woff2') format('woff2'),
          url('assets/fonts/cardenio_modern_std.woff') format('woff');
     font-weight: normal;
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-    font-family: 'Cardenio Modern', sans-serif;
+    font-family: 'Cardenio Modern';
     src: url('assets/fonts/cardenio_modern_bold.woff2') format('woff2'),
          url('assets/fonts/cardenio_modern_bold.woff') format('woff');
     font-weight: bold;
@@ -20,8 +20,8 @@
 
 @font-face {
     font-family: 'LXGW WenKai Mono TC';
-    src: url('assets/fonts/subset-LXGWWenKaiMonoTC-Regular.woff2') format('woff2'),
-        url('assets/fonts/subset-LXGWWenKaiMonoTC-Regular.woff') format('woff');
+    src: url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Regular.woff2') format('woff2'),
+        url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -29,8 +29,8 @@
 
 @font-face {
     font-family: 'LXGW WenKai Mono TC';
-    src: url('assets/fonts/subset-LXGWWenKaiMonoTC-Bold.woff2') format('woff2'),
-        url('assets/fonts/subset-LXGWWenKaiMonoTC-Bold.woff') format('woff');
+    src: url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Bold.woff2') format('woff2'),
+        url('assets/fonts/cyrillic-LXGWWenKaiMonoTC-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
