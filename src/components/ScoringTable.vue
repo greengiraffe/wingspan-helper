@@ -1,5 +1,8 @@
 <template>
-  <div class="table">
+  <div
+    class="table"
+    :style="tableStyle"
+  >
     <div class="row row--player">
       <div class="cell cell--label">
         <span>{{ $t('playerTitle') }}</span>
@@ -15,7 +18,7 @@
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
-        :class="'cell-' + activePlayerCount() + 'up cell cell--label cell--player-num cell--no-pad'"
+        class="cell cell--label cell--player-num cell--no-pad"
       >
         <input
           class="cell-input"
@@ -38,7 +41,7 @@
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
-        :class="'cell-' + activePlayerCount() +'up cell cell--no-pad'"
+        class="cell cell--no-pad"
       >
         <input
           :id="scoreId(scoreType, playerNum)"
@@ -63,7 +66,7 @@
       <div
         v-for="(player, playerNum) in activePlayers"
         :key="playerNum"
-        :class="'cell-' + activePlayerCount() +'up cell cell--total'"
+        class="cell cell--total"
       >
         <span
           v-show="showResults"
@@ -101,6 +104,11 @@ export default {
       'showTotal',
       'touchedPlayerTitles'
     ]),
+    tableStyle() {
+      return {
+        '--player-count': this.activePlayerCount()
+      };
+    }
   },
   methods: {
     score (scoreType, playerNum) {
@@ -124,12 +132,16 @@ export default {
     updateScore (event, playerNum, scoreType) {
       const value = event.target.value
       let score = Number.parseInt(value)
+      // Treat empty input as 0, not -1 which was used internally before
       if (value.length === 0) {
-        score = 0
-      } else if (isNaN(score)) {
-        event.target.setCustomValidity('Input must be a number')
-        score = 0
+        score = 0 // Or potentially -1 if you want to revert to that logic explicitly
+      } else if (isNaN(score) || score < 0) {
+        // Ensure score is a non-negative number or handle empty/invalid input
+        event.target.value = '' // Clear invalid input
+        score = 0 // Or -1 if that's your placeholder for empty
       }
+      // Consider adding validation feedback if needed: event.target.setCustomValidity(...)
+
       this.$store.commit('setPlayerScore', {
         playerNum,
         scoreType,
@@ -165,11 +177,11 @@ export default {
 .row {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: minmax(8.5rem, 1fr) repeat(60, 1fr);
+  grid-template-columns: minmax(8.5rem, 1fr) repeat(var(--player-count, 1), minmax(0, 1fr));
   text-align: center;
 
   @include break-phone {
-    grid-template-columns: minmax(11.5rem, 1fr) repeat(60, 1fr);
+    grid-template-columns: minmax(11.5rem, 1fr) repeat(var(--player-count, 1), minmax(0, 1fr));
   }
 
   + .row {
@@ -181,29 +193,6 @@ export default {
   }
 }
 
-.cell-2up {
-  grid-column-start: span 30;
-}
-
-.cell-3up {
-  grid-column-start: span 20;
-}
-
-.cell-4up {
-  grid-column-start: span 15;
-}
-
-.cell-5up {
-  grid-column-start: span 12;
-}
-
-.cell-6up {
-  grid-column-start: span 10;
-}
-
-.cell-7up {
-  grid-column-start: span 8;
-}
 
 .row--player {
   font-weight: bold;
@@ -224,6 +213,7 @@ export default {
 .cell {
   margin: 0;
   padding: 0.25rem;
+  min-width: 0;
 
   @include break-phone {
     padding: 0.5rem
@@ -236,6 +226,7 @@ export default {
 
 .cell--label {
   display: flex;
+  align-items: center;
   font-family: $font-primary;
   letter-spacing: 0.02rem;
   font-size: 1.2rem;
@@ -246,7 +237,7 @@ export default {
   }
 }
 
-// fix overly large 
+// fix overly large letter spacing in cyrillic
 :global(html[lang="uk"] .cell--label)  {
   letter-spacing: -0.02em;
 }
