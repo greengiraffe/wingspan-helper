@@ -21,7 +21,13 @@
 </template>
 
 <script>
+import { inject } from '@vercel/analytics';
 import Scoresheet from './views/Scoresheet.vue'
+
+// Adds Vercel Analytics (https://vercel.com/docs/analytics)
+// This does not collect personal data, it's pure curiosity
+// that helps me understand how often the app is used.
+inject();
 
 export default {
   name: 'App',
