@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2019-2020 Valentin von Guttenberg (original code, @greengiraffe)
+Copyright (c) 2019-2025 Valentin von Guttenberg (original code, @greengiraffe) and [these nice people](https://github.com/greengiraffe/wingspan-helper/graphs/contributors) that added features and translations - thank you!
 
 Copyright (c) 2020 Michael Heinrichs (additions & modifications, @verdantPermission)
 
