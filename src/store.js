@@ -1,5 +1,5 @@
-import {createStore} from "vuex";
-import {i18n} from "./i18n";
+import { createStore } from "vuex";
+import { i18n } from "./i18n";
 
 const scoreTypes = i18n.global.tm("scoreTypes", "en");
 const stateStorageKey = "state";
@@ -62,6 +62,7 @@ const loadState = () => {
     }
   }
   i18n.global.locale = state.language;
+  document.documentElement.setAttribute("lang", state.language);
   return state;
 };
 
