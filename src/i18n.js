@@ -44,7 +44,6 @@ const messages = {
     resetPoints: 'Скинути бали',
     pointsInputTitle: '%{scoreType} балів у гравця %{playerNum}',
     playerTotalTitle: 'всього балів у гравця %{playerNum}',
-    comingSoon: 'coming soon',
     total: 'Всього',
     scoreTypes: ['Птахи', 'Карти бонусів', 'Цілі раундів', 'Яйця', 'Корму на картах', 'Підкладені картки', 'Нектар']
   }
