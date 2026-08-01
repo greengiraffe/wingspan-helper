@@ -91,10 +91,10 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-              @import "./src/styles/_variables.scss";
-              @import "./src/styles/_mixins.scss";
-            `,
+        additionalData: (content, filename) => {
+          const stylesPath = fileURLToPath(new URL('./src/styles', import.meta.url));
+          return `@use "${stylesPath}/_variables.scss" as *;\n@use "${stylesPath}/_mixins.scss" as *;\n${content}`;
+        },
       },
     },
   },
