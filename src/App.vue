@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "styles/main.scss";
+@use "@/styles/main.scss";
 
 #wrapper {
   max-width: $app-width;

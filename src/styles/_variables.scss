@@ -1,13 +1,15 @@
+@use 'sass:color';
+
 // Colors
 $color-fg: hsl(34, 78%, 91%);
-$color-fg--light: lighten($color-fg, 5%);
-$color-fg--dark: desaturate(darken($color-fg, 10%), 20%);
+$color-fg--light: color.adjust($color-fg, $lightness: 5%);
+$color-fg--dark: color.adjust($color-fg, $lightness: -10%, $saturation: -20%);
 $color-bg: #fff;
 $color-primary: hsl(153, 47%, 49%);
 $color-secondary: hsl(199, 100%, 82%);
 $color-text: #333;
-$color-border: adjust-color($color-fg, $lightness: -10%, $saturation: -30%);
-$color-link: darken($color-primary, 10%);
+$color-border: color.adjust($color-fg, $lightness: -10%, $saturation: -30%);
+$color-link: color.adjust($color-primary, $lightness: -10%);
 $color-switch-bg: $color-fg--dark;
 $color-switch-bg--active: $color-primary;
 $color-switch-slider: $color-fg--light;

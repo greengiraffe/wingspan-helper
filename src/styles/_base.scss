@@ -1,3 +1,7 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
 // Normalize
 
 *, *:before, *:after {
@@ -81,6 +85,6 @@ button {
   color: $color-fg;
 
   &:hover, &:focus, &:active {
-    background: darken($color-primary, 10%);
+    background: color.adjust($color-primary, $lightness: -10%);
   }
 }

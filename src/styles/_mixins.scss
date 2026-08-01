@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 // Breakpoints
 @mixin break-tablet() {
     @media screen and (min-width: $breakpoint-tablet) {
