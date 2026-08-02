@@ -4,7 +4,7 @@ A digital scoresheet for the beautiful boardgame [Wingspan](https://stonemaierga
 
 :globe_with_meridians: Available in English, German, Chinese (provided by @LeoQuote), Dutch (provided by @pdcleyn) and Ukrainian (provided by @dmytrohoi).
 
-:arrow_right: Try it out at https://wingspan-helper.vercel.app/
+:arrow_right: Try it out at https://wingspan.greengiraffe.de
 
 :sparkles: You can add the app to your homescreen and use it offline if you want!
 
